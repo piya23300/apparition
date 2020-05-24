@@ -93,7 +93,7 @@ module Capybara::Apparition
             break if (url = @output.pop.scan(regexp)[0])
           end
           @out_thread.kill
-          @out_thread.join # wait for thread to end before closing io
+          @out_thread.join 1# wait for thread to end before closing io
           close_io
           Addressable::URI.parse(url[0])
         end
